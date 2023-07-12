@@ -213,6 +213,7 @@ app.post("/signup", async (req, res) => {
       user: userResponse,
     });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "error registering user" });
   }
 });
@@ -254,6 +255,7 @@ app.post("/login", async (req, res) => {
       user: userResponse,
     });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "error logging in" });
   }
 });
