@@ -41,6 +41,11 @@ const Recipe = sequelize.define("Recipe", {
     allowNull: false,
     defaultValue: 0,
   },
+  reviews: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
+  },
   notes: {
     type: DataTypes.STRING,
     allowNull: false,
