@@ -207,7 +207,11 @@ app.post("/signup", async (req, res) => {
       expiresIn: "24h",
     });
 
-    res.cookie("token", token, { httpOnly: true });
+    res.cookie("token", token, {
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+    });
     res.status(201).json({
       message: "user registered successfully",
       user: userResponse,
@@ -249,7 +253,11 @@ app.post("/login", async (req, res) => {
       expiresIn: "24h",
     });
 
-    res.cookie("token", token, { httpOnly: true });
+    res.cookie("token", token, {
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+    });
     res.status(200).json({
       message: "user log in successfully",
       user: userResponse,
