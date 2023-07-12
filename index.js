@@ -24,9 +24,15 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-// Configure CORS
+// Configure CORS(dev)
+// const corsOptions = {
+//   origin: "http://localhost:3000", // specify the exact origin
+//   credentials: true, // allow credentials
+// };
+
+// Configure CORS(prod)
 const corsOptions = {
-  origin: "http://localhost:3000", // specify the exact origin
+  origin: "https://benevolent-kelpie-4b546a.netlify.app", // specify the exact origin
   credentials: true, // allow credentials
 };
 
