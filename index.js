@@ -4,7 +4,6 @@ import morgan from "morgan";
 import sequelize from "./config/db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
 import { Op } from "sequelize";
 import cookieParser from "cookie-parser";
 import { Configuration, OpenAIApi } from "openai";
@@ -15,7 +14,6 @@ import Like from "./models/Like.js";
 import Review from "./models/Review.js";
 
 const app = express();
-dotenv.config();
 
 // open ai setup
 const configuration = new Configuration({
