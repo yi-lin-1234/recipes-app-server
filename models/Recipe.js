@@ -17,11 +17,11 @@ const Recipe = sequelize.define("Recipe", {
     allowNull: false,
   },
   ingredients: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
   instructions: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
   recipePictureUrl: {
@@ -47,7 +47,7 @@ const Recipe = sequelize.define("Recipe", {
     defaultValue: 0,
   },
   notes: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
 });

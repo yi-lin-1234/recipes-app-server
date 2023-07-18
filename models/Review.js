@@ -9,7 +9,7 @@ const Review = sequelize.define("Review", {
     primaryKey: true,
   },
   content: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
 });

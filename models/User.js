@@ -30,7 +30,7 @@ const User = sequelize.define("User", {
     allowNull: false,
   },
   aboutMe: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
 });

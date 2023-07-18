@@ -251,8 +251,6 @@ app.post("/login", async (req, res) => {
       expiresIn: "24h",
     });
 
-    console.log(token);
-
     res.cookie("token", token, {
       httpOnly: true,
       sameSite: "none",
