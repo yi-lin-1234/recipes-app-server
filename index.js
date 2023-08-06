@@ -493,7 +493,7 @@ app.get("/user/:id", authenticateToken, async (req, res) => {
 
     // Find the user and include their recipes
     const user = await User.findByPk(userId, {
-      attributes: ["id", "username", "profilePictureUrl", "aboutMe"],
+      attributes: ["id", "username", "email", "profilePictureUrl", "aboutMe"],
     });
 
     // If no user found, return appropriate message
@@ -691,9 +691,15 @@ app.get("/recipes-count-by-cuisine", authenticateToken, async (req, res) => {
       group: ["cuisine"],
       attributes: [
         "cuisine",
-        [sequelize.fn("COUNT", sequelize.col("cuisine")), "recipeCount"],
+        [
+          sequelize.cast(
+            sequelize.fn("COUNT", sequelize.col("cuisine")),
+            "integer"
+          ),
+          "count",
+        ],
       ],
-      order: [[sequelize.literal('"recipeCount"'), "DESC"]],
+      order: [[sequelize.literal('"count"'), "DESC"]],
     });
 
     if (!data || data.length === 0) {
@@ -714,11 +720,14 @@ app.get("/recipes-count-by-difficulty", async (req, res) => {
       attributes: [
         "difficultyLevel",
         [
-          sequelize.fn("COUNT", sequelize.col("difficultyLevel")),
-          "recipeCount",
+          sequelize.cast(
+            sequelize.fn("COUNT", sequelize.col("difficultyLevel")),
+            "integer"
+          ),
+          "count",
         ],
       ],
-      order: [[sequelize.literal('"recipeCount"'), "DESC"]],
+      order: [[sequelize.literal('"count"'), "DESC"]],
     });
 
     if (!data || data.length === 0) {
